@@ -4,3 +4,4 @@ beautifulsoup4==4.11.1
 pandas==1.4.3
 openpyxl==3.0.10
 gunicorn==20.1.0
+Werkzeug==2.0.3
