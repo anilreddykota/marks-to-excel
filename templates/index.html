@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Results Fetcher</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #loader {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+        }
+        #loader img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="loader">
+        <img src="https://i.gifer.com/ZZ5H.gif" alt="Loading...">
+    </div>
+    <div class="container-fluid mt-5">
+        <h1 class="mb-4">Fetch Student Results</h1>
+        <form id="fetchForm" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="exam_id" class="form-label">Exam ID (AVAILABLE IN http://srkrexams.in/Result.aspx?Id=<b>e0kEh0JWfdZhprDp5t+Y8w%3d%3d</b> ->> Exam id)</label>
+                <input type="text" class="form-control" id="exam_id" name="exam_id" required>
+            </div>
+            <div class="container d-flex sm-flex-column gap-5 justify-content-center">
+                <div class="bg-primary p-4">
+                    <div class="mb-3">
+                        <label for="year" class="form-label">Year (Regd. No. starts with, 22 (Batch), 23 (Batch), 24 (Batch))</label>
+                        <input type="text" class="form-control" id="year" name="year" placeholder="Regd. No. starts with, 22 (Batch), 23 (Batch), 24 (Batch)">
+                    </div>
+                    <div class="mb-3">
+                        <label for="branch_code" class="form-label">Branch Code</label>
+                        <select class="form-control" id="branch_code" name="branch_code">
+                            <option value="54">AIDS</option>
+                            <option value="05">CSE</option>
+                            <option value="12">IT</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="last_number" class="form-label">Last Number (COUNT OF STUDENTS)</label>
+                        <input type="number" class="form-control" id="last_number" name="last_number">
+                    </div>
+                </div>
+                <div class="mb-3 bg-success p-4">
+                    <label for="file" class="form-label">Upload Excel File with ["Student ID" as column name]</label>
+                    <input type="file" class="form-control" id="file" name="file" accept=".xlsx">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-secondary m-3 text-center">Fetch Results</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('fetchForm').addEventListener('submit', function () {
+            document.getElementById('loader').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
